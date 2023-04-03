@@ -177,7 +177,7 @@ if exist('folds', 'dir') == 0
     disp('creating folds directory');
     mkdir('folds');
 end
-writetable(folds, 'folds/prakFoldChanges.csv',...
+writetable(folds, 'folds/peakFoldChanges.csv',...
     "FileType","text", 'Delimiter', ',');
 
 
