@@ -5,7 +5,7 @@ MATLAB code to learn metabolic rewiring from GCMS data.
 Converts Agilent .D files into CVS text files. Requires [chromatography-toolbox](https://www.mathworks.com/matlabcentral/fileexchange/47696-chromatography-toolbox) in the path.
 
 ## extractSpectraAndIntegrate(csvDataDir, outputSpectraDir)
-Detects peaks in the total ion chromatogram, extract their spectra and integrates the peaks to make a peak area table.
+Analyzes GCMS data in the provided directory containing CSV files. It identifies peaks in the total ion chromatogram (TIC), extracts their spectra, and integrates the peaks to create a peak area table. The output tables, tblPeaksIntegrated and tblSpectra, are saved as CSV files in the specified outputSpectraDir directory.
 
 ## scaleGcmsPeaks
 This is a script, not a function. Therefore, it doesn't have input arguments. Loads the peak areas table, scales each sample using a mixed effects model, does a PCA to compare the data before and after scaling, then uses another mixed effects model to calculate the log-2 fold change of each peak detected. Saves the result as a table in a new directory 'folds'.
