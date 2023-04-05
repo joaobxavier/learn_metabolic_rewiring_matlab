@@ -19,3 +19,44 @@ This script loads two data tables: spectra data from a CSV file (tblSpectra.csv)
 
 ## importMsl
 This script imports a mass spectral library (MSL) file (Fiehn-2013.MSL) and creates a table, *massSpectralLibrary*, with information about each compound in the library. *massSpectralLibrary* has 12 columns, which store various properties of the compounds like name, molecular weight, CAS number, retention index, retention time, number of peaks, m/z values, and abundance values. The spectra are represented as arrays of ion abundances between m/z 50 and 599. Column *abundance73* represents the abundance of each compound at m/z 73.
+
+# PLSR Learner
+
+The `plsrLearner` class is a MATLAB class for learning associations between the spectrum of a metabolite and a response variable using Partial Least Square Regression (PLSR). The class is designed to handle the training, evaluation, and optimization of PLSR models.
+
+## Properties
+
+- `xData`: The spectra for each metabolite.
+- `yData`: The response variable.
+
+## Methods
+
+### `plsrLearner(x, y)`
+
+Constructor for the `plsrLearner` class. Initializes an instance with the given spectra `x` and response variable `y`.
+
+### `learn(x, y, n)`
+
+Performs PLSR with `n` components using input `x` and response variable `y`. Returns the following:
+
+- `BETA`: Regression coefficients.
+- `Ypred`: Predicted values of the response variable.
+- `loss`: Squared difference between predicted and true values.
+- `sse`: Sum of squared errors.
+
+### `leaveOneOutEvaluation(n)`
+
+Evaluates a PLSR model with `n` components using leave-one-out cross-validation. Returns the following:
+
+- `Ypred`: Predicted values of the response variable.
+- `trainSse`: Mean sum of squared errors for training data.
+- `leaveOneOutSse`: Sum of squared errors for leave-one-out evaluation.
+
+### `optimizeComponentsAndLearn(maxn)`
+
+Determines the optimal number of components (up to `maxn`) that minimizes the loss of leave-one-out evaluations. Returns the following:
+
+- `nopt`: Optimal number of components.
+- `Ypred`: Predicted values of the response variable for the optimal model.
+- `trainSse`: Mean sum of squared errors for training data for each tested number of components.
+- `leaveOneOutSse`: Sum of squared errors for leave-one-out evaluation for each tested number of components.
