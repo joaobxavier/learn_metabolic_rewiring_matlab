@@ -60,3 +60,25 @@ Determines the optimal number of components (up to `maxn`) that minimizes the lo
 - `Ypred`: Predicted values of the response variable for the optimal model.
 - `trainSse`: Mean sum of squared errors for training data for each tested number of components.
 - `leaveOneOutSse`: Sum of squared errors for leave-one-out evaluation for each tested number of components.
+
+# learnMetabolicRewiring
+
+Uses the `plsrLearner` class to analyze metabolic rewiring in cells based on their metabolite spectra and fold changes. It determines the optimum number of components (latent variables) for the PLSR model and plots the learning loss and the predictions of the model with the optimal number of components.
+
+## Data used
+
+- `tblSpectra.csv`: A table containing the spectra for all peaks.
+- `peakFoldChanges.csv`: A table containing fold changes for all peaks.
+
+## Workflow
+
+1. Load data.
+2. Determine the optimum number of components (latent variables) for the PLSR model.
+3. Plot the training and evaluation loss, and compare predictions from the optimal model with real data.
+
+## Output
+
+- A plot showing the training and evaluation loss versus the number of latent components in the PLSR model.
+- A scatter plot comparing the true metabolite abundances with the best model predictions.
+
+
