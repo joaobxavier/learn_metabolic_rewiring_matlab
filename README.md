@@ -1,4 +1,4 @@
-# Learn Metabolic Rewiring MATLAB
+# Metabolic rewiring discovery with MetaboLiteLearner, a lightweight and efficient PLSR-based statistical learning algorithm.
 
 MATLAB code to learn metabolic rewiring from GCMS data.
 
