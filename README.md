@@ -103,3 +103,8 @@ Uses the `plsrLearner` class to analyze metabolic rewiring in cells based on the
 
 - A plot showing the training and evaluation loss versus the number of latent components in the PLSR model.
 - A scatter plot comparing the true metabolite abundances with the best model predictions.
+
+## identifyFirstEnrichmentAnalysis
+This script generates bar and scatter plots to visualize the fold changes of identified metabolites in bone-homing and lung-homing cells. 
+
+
