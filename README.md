@@ -22,9 +22,22 @@ Analyzes GCMS data in the provided directory containing CSV files. It identifies
 
 This is a script, not a function. Therefore, it doesn't have input arguments. Loads the peak areas table, scales each sample using a mixed effects model, does a PCA to compare the data before and after scaling, then uses another mixed effects model to calculate the log-2 fold change of each peak detected. Saves the result as a table in a new directory 'folds'.
 
-### identifyCompounds
+### identifyCompounds 
+Identify Compounds with GC/MS Data and FiehnLib. Matches GC/MS spectra from the `extractedPeaks` folder against the FiehnLib mass spectral library. It assesses best matches based on cosine similarity and the retention time window.
 
-This script loads two data tables: spectra data from a CSV file (tblSpectra.csv) and fold changes data from another CSV file (peakFoldChanges.csv). It imports a mass spectral library (FiehnLib) and finds the best match for each spectrum by maximizing cosine similarity and stores the results in the tblFoldChanges table. Plots the results in a two-part figure: The first plot displays the cosine similarity for each peak, with the top 31 matches highlighted (cosine similarity 0.95). The second plot shows the fold changes of brain-homing and lung-homing for the top 31 matches as horizontal bars. Finally, it saves the identified table as a CSV file in the 'identifiedFiehnLib' directory.
+#### Script Workflow
+
+1. Load the spectra from the `tblSpectra.csv` file in the `extractedPeaks` folder.
+2. Import the FiehnLib mass spectral library.
+3. Compute the cosine similarity between the input spectra and the FiehnLib spectra.
+4. Identify the best matches based on cosine similarity.
+5. Create a new table with the best matches and their properties (name, CAS number, retention time).
+6. Calibrate the retention time using a robust linear fit model, considering only matches with excellent similarity (>= 95%).
+7. Add a flag to the table indicating if a match has >= 95% similarity and is within the 95% confidence retention time window.
+8. Generate two plots:
+   - A scatter plot showing the calibrated retention times of the input spectra and the best FiehnLib matches.
+   - A scatter plot ranking the cosine similarity of the identified peaks, highlighting good matches.
+9. Save the identified compound table in the `identifiedFiehnLib` folder as `tblIdentity.csv`.
 
 ### importMsl
 
