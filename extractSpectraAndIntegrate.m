@@ -4,6 +4,9 @@ function [tblPeaksIntegrated, tblSpectra] = extractSpectraAndIntegrate(csvDataDi
 %   Analyzes the GCMS data in the directory csvDataDir. The data should be
 % converted into CSV files. Indetifies peaks in the total ion chromatogram,
 % extract their spectra and integrates the peaks to make a peak area table.
+% 
+% Usage example:
+% [tblPeaksIntegrated, tblSpectra] = extractSpectraAndIntegrate('gcmsCSVs', 'extractedPeaks');
 
 % initialize tblSpectra
 time = (6:0.01:30)';
@@ -46,8 +49,8 @@ tblTic.tic = sum(tblSampleTic{:,sampleNames}, 2);
 tblTicPeaks = table(peakTicList(:, 1), peakTicList(:, 2), peakTicWHH(:, 1), peakTicWHH(:, 2));
 tblTicPeaks.Properties.VariableNames = {'rtPeak' 'intensity' 'rtStart' 'rtEnd' };
 
-% create a peak Id
-tblTicPeaks.peakId = (1:height(tblTicPeaks))';
+% use the retention time of peak as the peakId
+tblTicPeaks.peakId = tblTicPeaks.rtPeak;
 
 %% assign peakIds to all the retention time values in the TICtable
 a = bsxfun(@gt,tblTic.time,tblTicPeaks.rtStart');

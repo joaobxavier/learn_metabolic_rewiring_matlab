@@ -23,37 +23,96 @@ classdef plsrLearner
         end
 
 
-        function [Ypred, trainSse, leaveOneOutSse] = leaveOneOutEvaluation(obj, n)
+        function [BETA, Ypred, loss, sse] = learnWithAllData(obj, n)
+            %learn does PCR with n components
+            [BETA, Ypred, loss, sse] = learn(obj, obj.xData, obj.yData, n);
+        end
+
+
+
+        function [Ypred, trainSse, leaveOneOutSse, betaDistribution] = leaveOneOutEvaluation(obj, n)
             %leaveOneOutEvaluation Evaluates a model with n components
             ndata = size(obj.xData, 1);
-            parfor j = 1:ndata
+            for j = 1:ndata
                 idxTrainig = ones(ndata, 1);
                 idxTrainig(j) = 0;
                 idxTrainig = logical(idxTrainig);
                 xtrain = obj.xData(idxTrainig, :);
-                ytrain = obj.yData(idxTrainig, :);                
+                ytrain = obj.yData(idxTrainig, :);
+                xTest  = obj.xData(~idxTrainig, :);
                 [BETA, ~, ~, sse] = obj.learn(xtrain, ytrain, n);
                 sseModel(j) = sse;
-                Ypred(j, :) = BETA(1,:) + obj.xData(~idxTrainig, :) * BETA(2:end,:);
+                Ypred(j, :) = [ones(size(xTest, 1), 1), xTest] * BETA;
+                betaDistribution(:, :, j) = BETA;
             end
             leaveOneOutSse = sum((Ypred(:) - obj.yData(:)).^2);
             trainSse = mean(sseModel);
         end
 
-        function [nopt, Ypred, trainSse, leaveOneOutSse] = optimizeComponentsAndLearn(obj, maxn)
+
+        function [Ypred, trainSse, kFoldSse, betaDistribution] = kFoldEvaluation(obj, n, k)
+            % Evaluates a PLSR model with 'n' components using k-fold cross-validation.
+            % Input:
+            %   n: Number of components to use in the PLSR model.
+            %   k: Number of folds for cross-validation.
+            % Output:
+            %   Ypred: Predicted values of the response variable.
+            %   trainSse: Mean sum of squared errors for training data.
+            %   kFoldSse: Sum of squared errors for k-fold cross-validation.
+
+            % Set up k-fold cross-validation indices
+            cvIndices = crossvalind('Kfold', size(obj.xData, 1), k);
+
+            Ypred = zeros(size(obj.yData));
+            trainSse = zeros(k, 1);
+
+            for i = 1:k
+                % Split the data into training and test sets
+                trainIdx = (cvIndices ~= i);
+                testIdx = (cvIndices == i);
+
+                xTrain = obj.xData(trainIdx, :);
+                yTrain = obj.yData(trainIdx, :);
+                xTest = obj.xData(testIdx, :);
+
+                % Train the PLSR model on the training data
+                [BETA, ~, ~, sse] = obj.learn(xTrain, yTrain, n);
+
+                % Predict the response variable for the test set
+                YpredTest = [ones(size(xTest, 1), 1), xTest] * BETA;
+                Ypred(testIdx, :) = YpredTest;
+                % Keep the sum of squared errors for the training set
+                trainSse(i) = sse;
+                % build a distribution of coefficients
+                idx = find(testIdx);
+                for j = 1:length(idx)
+                    betaDistribution(:, :, idx(j)) = BETA;
+                end
+            end
+            kFoldSse = sum((Ypred(:) - obj.yData(:)).^2);
+            % Calculate the mean sum of squared errors for the training data
+            trainSse = mean(trainSse);
+        end
+
+
+        function [nopt, Ypred, trainSse, testSse] = optimizeComponentsAndLearn(obj, maxn, kfold)
             %optimizeComponentsAndLearn determine the number of components
             %that minimizes the loss of leave-on-out evaluations
             ncomps = 1:maxn;
             h = waitbar(0,'PLSR: Please wait...');
             for ncomp = ncomps
                 waitbar(ncomp/length(ncomps),h)
-                [YpredOut, trainSseOut, leaveOneOutSseOut] = obj.leaveOneOutEvaluation(ncomp);
-                Ypred(:,:, ncomp) = YpredOut;
-                trainSse(ncomp) = trainSseOut;
-                leaveOneOutSse(ncomp) = leaveOneOutSseOut;
+                if nargin == 2
+                    [Yp, trainSseO, testSseO] = obj.leaveOneOutEvaluation(ncomp);
+                else
+                    [Yp, trainSseO, testSseO] = obj.kFoldEvaluation(ncomp, kfold);
+                end
+                Ypred(:,:, ncomp) = Yp;
+                trainSse(ncomp) = trainSseO;
+                testSse(ncomp) = testSseO;
             end
             close(h)
-            [~, nopt] = min(leaveOneOutSse);
+            [~, nopt] = min(testSse);
         end
     end
 end

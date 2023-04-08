@@ -17,7 +17,7 @@ for i = 1:height(tlbSampleTicPeaksIntegrated)
     pValues(i) = aov.pValue(1);
 end
 
-%% PCA before rescalling 
+%% PCA in linear scale before rescalling 
 figure(1)
 m = tlbSampleTicPeaksIntegrated{pValues<0.05, 2:end}';
 [coeff, score, latent, tsquared, explained] = pca(m);
@@ -76,7 +76,7 @@ batch = contains(batch, 'plate1') +...
     2*contains(batch, 'plate2') +...
     3*contains(batch, 'plate3');
 
-figure(1)
+figure(2)
 % PCA before correction
 m = tblBeforeScalling{:, 2:end}';
 m = zscore(log(m), [], 2);
@@ -151,7 +151,7 @@ folds.upperL = upperCI.L./ log(2);
 
 % plot the fold-changes in a scatter plot with each metabolite colored by
 % p-value
-figure(2)
+figure(3)
 errorbar(folds.B, folds.L,...
     folds.L - folds.lowerL, folds.upperL - folds.L,...
     folds.B - folds.lowerB, folds.upperB - folds.B, '.', 'Color', [1 1 1]*0.8)
@@ -169,8 +169,7 @@ set(gca, 'CLim', [1.3 2])
 [r, p] = corr(folds.B, folds.L);
 title(sprintf('%d compounds; \\rho = %0.2f; P-value = %0.0e',...
     height(folds), r, p));
-% hcb=colorbar;
-% title(hcb,'-log10(PValue)');
+
 
 %% save the folds table
 if exist('folds', 'dir') == 0
