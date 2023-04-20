@@ -22,6 +22,15 @@ Analyzes GCMS data in the provided directory containing CSV files. It identifies
 
 This is a script, not a function. Therefore, it doesn't have input arguments. Loads the peak areas table, scales each sample using a mixed effects model, does a PCA to compare the data before and after scaling, then uses another mixed effects model to calculate the log-2 fold change of each peak detected. Saves the result as a table in a new directory 'folds'.
 
+### unsupervisedAnalysis.m
+
+This script performs unsupervised analysis on the metabolite data, exploring the structure within the explanatory variable X and examining correlations within the response variable Y. It generates two figures:
+
+1. Correlation between brain-homing and lung-homing fold changes.
+2. PCoA plots for GC/MS peaks, log2(FC) in brain-homing, and log2(FC) in lung-homing.
+
+
+
 ### identifyCompounds 
 Identify Compounds with GC/MS Data and FiehnLib. Matches GC/MS spectra from the `extractedPeaks` folder against the FiehnLib mass spectral library. It assesses best matches based on cosine similarity and the retention time window.
 
