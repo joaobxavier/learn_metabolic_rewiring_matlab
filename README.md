@@ -52,22 +52,47 @@ Identify Compounds with GC/MS Data and FiehnLib. Matches GC/MS spectra from the 
 
 This script imports a mass spectral library (MSL) file (Fiehn-2013.MSL) and creates a table, *massSpectralLibrary*, with information about each compound in the library. *massSpectralLibrary* has 12 columns, which store various properties of the compounds like name, molecular weight, CAS number, retention index, retention time, number of peaks, m/z values, and abundance values. The spectra are represented as arrays of ion abundances between m/z 50 and 599. Column *abundance73* represents the abundance of each compound at m/z 73.
 
-## PLSR Learner
+### learnMetabolicRewiring
+
+Uses the `plsrLearner` class to analyze metabolic rewiring in cells based on their metabolite spectra and fold changes. It determines the optimum number of components (latent variables) for the PLSR model and plots the learning loss and the predictions of the model with the optimal number of components.
+
+#### Data used
+
+- `tblSpectra.csv`: A table containing the spectra for all peaks.
+- `peakFoldChanges.csv`: A table containing fold changes for all peaks.
+
+#### Workflow
+
+1. Load data.
+2. Determine the optimum number of components (latent variables) for the PLSR model.
+3. Plot the training and evaluation loss, and compare predictions from the optimal model with real data.
+
+#### Output
+
+- A plot showing the training and evaluation loss versus the number of latent components in the PLSR model.
+- A scatter plot comparing the true metabolite abundances with the best model predictions.
+
+### identifyFirstEnrichmentAnalysis
+This script generates bar and scatter plots to visualize the fold changes of identified metabolites in bone-homing and lung-homing cells. 
+
+
+## Classes
+### PLSR Learner
 
 The `plsrLearner` class is a MATLAB class for learning associations between the spectrum of a metabolite and a response variable using Partial Least Square Regression (PLSR). The class is designed to handle the training, evaluation, and optimization of PLSR models.
 
-### Properties
+#### Properties
 
 - `xData`: The spectra for each metabolite.
 - `yData`: The response variable.
 
-### Methods
+#### Methods
 
-#### plsrLearner(x, y)
+##### plsrLearner(x, y)
 
 Constructor for the `plsrLearner` class. Initializes an instance with the given spectra `x` and response variable `y`.
 
-#### learn(x, y, n)
+##### learn(x, y, n)
 
 Performs PLSR with `n` components using input `x` and response variable `y`. Returns the following:
 
@@ -76,7 +101,7 @@ Performs PLSR with `n` components using input `x` and response variable `y`. Ret
 - `loss`: Squared difference between predicted and true values.
 - `sse`: Sum of squared errors.
 
-#### leaveOneOutEvaluation(n)
+##### leaveOneOutEvaluation(n)
 
 Evaluates a PLSR model with `n` components using leave-one-out cross-validation. Returns the following:
 
@@ -84,7 +109,7 @@ Evaluates a PLSR model with `n` components using leave-one-out cross-validation.
 - `trainSse`: Mean sum of squared errors for training data.
 - `leaveOneOutSse`: Sum of squared errors for leave-one-out evaluation.
 
-#### optimizeComponentsAndLearn(maxn)
+##### optimizeComponentsAndLearn(maxn)
 
 Determines the optimal number of components (up to `maxn`) that minimizes the loss of leave-one-out evaluations. Returns the following:
 
@@ -92,28 +117,4 @@ Determines the optimal number of components (up to `maxn`) that minimizes the lo
 - `Ypred`: Predicted values of the response variable for the optimal model.
 - `trainSse`: Mean sum of squared errors for training data for each tested number of components.
 - `leaveOneOutSse`: Sum of squared errors for leave-one-out evaluation for each tested number of components.
-
-## learnMetabolicRewiring
-
-Uses the `plsrLearner` class to analyze metabolic rewiring in cells based on their metabolite spectra and fold changes. It determines the optimum number of components (latent variables) for the PLSR model and plots the learning loss and the predictions of the model with the optimal number of components.
-
-### Data used
-
-- `tblSpectra.csv`: A table containing the spectra for all peaks.
-- `peakFoldChanges.csv`: A table containing fold changes for all peaks.
-
-### Workflow
-
-1. Load data.
-2. Determine the optimum number of components (latent variables) for the PLSR model.
-3. Plot the training and evaluation loss, and compare predictions from the optimal model with real data.
-
-### Output
-
-- A plot showing the training and evaluation loss versus the number of latent components in the PLSR model.
-- A scatter plot comparing the true metabolite abundances with the best model predictions.
-
-## identifyFirstEnrichmentAnalysis
-This script generates bar and scatter plots to visualize the fold changes of identified metabolites in bone-homing and lung-homing cells. 
-
 
