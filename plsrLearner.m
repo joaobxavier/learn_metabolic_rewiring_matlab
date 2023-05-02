@@ -14,7 +14,7 @@ classdef plsrLearner
             obj.yData = y;
         end
 
-        function [BETA, Ypred, loss, sse] = learn(obj, x, y, n)
+        function [BETA, Ypred, loss, sse, XL, YL, XS, YS, PCTVAR] = learn(obj, x, y, n)
             %learn does PLSR with n components
             [XL,YL,XS,YS,BETA,PCTVAR,MSE,stats] = plsregress(x, y, n);
             Ypred = BETA(1,:) + x * BETA(2:end,:);
@@ -23,9 +23,10 @@ classdef plsrLearner
         end
 
 
-        function [BETA, Ypred, loss, sse] = learnWithAllData(obj, n)
+        function [BETA, Ypred, loss, sse, XL, YL, XS, YS, PCTVAR] = learnWithAllData(obj, n)
             %learn does PCR with n components
-            [BETA, Ypred, loss, sse] = learn(obj, obj.xData, obj.yData, n);
+            [BETA, Ypred, loss, sse XL, YL, XS, YS, PCTVAR] =...
+                learn(obj, obj.xData, obj.yData, n);
         end
 
 
@@ -45,7 +46,7 @@ classdef plsrLearner
                 Ypred(j, :) = [ones(size(xTest, 1), 1), xTest] * BETA;
                 betaDistribution(:, :, j) = BETA;
             end
-            leaveOneOutSse = sum((Ypred(:) - obj.yData(:)).^2);
+            leaveOneOutSse = (Ypred(:) - obj.yData(:)).^2;
             trainSse = mean(sseModel);
         end
 
@@ -83,13 +84,13 @@ classdef plsrLearner
                 Ypred(testIdx, :) = YpredTest;
                 % Keep the sum of squared errors for the training set
                 trainSse(i) = sse;
+                kFoldSse(i, 1) = sum((YpredTest - obj.yData(testIdx, :)).^2, "all");
                 % build a distribution of coefficients
                 idx = find(testIdx);
                 for j = 1:length(idx)
                     betaDistribution(:, :, idx(j)) = BETA;
                 end
             end
-            kFoldSse = sum((Ypred(:) - obj.yData(:)).^2);
             % Calculate the mean sum of squared errors for the training data
             trainSse = mean(trainSse);
         end
@@ -99,20 +100,20 @@ classdef plsrLearner
             %optimizeComponentsAndLearn determine the number of components
             %that minimizes the loss of leave-on-out evaluations
             ncomps = 1:maxn;
-            h = waitbar(0,'PLSR: Please wait...');
+            h = waitbar(0,'Optimizing PLSR components: Please wait...');
             for ncomp = ncomps
                 waitbar(ncomp/length(ncomps),h)
-                if nargin == 2
+                if nargin == 2 || kfold == 0
                     [Yp, trainSseO, testSseO] = obj.leaveOneOutEvaluation(ncomp);
                 else
                     [Yp, trainSseO, testSseO] = obj.kFoldEvaluation(ncomp, kfold);
                 end
                 Ypred(:,:, ncomp) = Yp;
                 trainSse(ncomp) = trainSseO;
-                testSse(ncomp) = testSseO;
+                testSse(:, ncomp) = testSseO;
             end
             close(h)
-            [~, nopt] = min(testSse);
+            [~, nopt] = min(mean(testSse));
         end
     end
 end
