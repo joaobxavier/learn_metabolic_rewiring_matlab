@@ -50,29 +50,9 @@ Identify Compounds with GC/MS Data and FiehnLib. Matches GC/MS spectra from the 
 
 This script imports a mass spectral library (MSL) file (Fiehn-2013.MSL) and creates a table, *massSpectralLibrary*, with information about each compound in the library. *massSpectralLibrary* has 12 columns, which store various properties of the compounds like name, molecular weight, CAS number, retention index, retention time, number of peaks, m/z values, and abundance values. The spectra are represented as arrays of ion abundances between m/z 50 and 599. Column *abundance73* represents the abundance of each compound at m/z 73.
 
-### learnMetabolicRewiring
+### learnMetabolicRewiring.m
 
-Uses the `plsrLearner` class to analyze metabolic rewiring in cells based on their metabolite spectra and fold changes. It determines the optimum number of components (latent variables) for the PLSR model and plots the learning loss and the predictions of the model with the optimal number of components.
-
-#### Data used
-
-- `tblSpectra.csv`: A table containing the spectra for all peaks.
-- `peakFoldChanges.csv`: A table containing fold changes for all peaks.
-
-#### Workflow
-
-1. Load data.
-2. Determine the optimum number of components (latent variables) for the PLSR model.
-3. Plot the training and evaluation loss, and compare predictions from the optimal model with real data.
-
-#### Output
-
-- A plot showing the training and evaluation loss versus the number of latent components in the PLSR model.
-- A scatter plot comparing the true metabolite abundances with the best model predictions.
-
-### identifyFirstEnrichmentAnalysis
-This script generates bar and scatter plots to visualize the fold changes of identified metabolites in bone-homing and lung-homing cells. 
-
+The `learnMetabolicRewiring.m` script analyzes metabolic rewiring in cancer cells using partial least squares regression (PLSR). It processes metabolomics data by loading and organizing spectra and fold changes, determining the optimal number of latent variables for the model, and comparing predictions with data. The script also explores the significance of the model by comparing it to shuffled data, visualizes the learned model by examining identified metabolites, and investigates latent components and their associated spectra. The analysis is performed using the `plsrLearner` class for PLSR.
 
 ## Classes
 ### PLSR Learner
