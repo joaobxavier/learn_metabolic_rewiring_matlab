@@ -51,8 +51,20 @@ Identify Compounds with GC/MS Data and FiehnLib. Matches GC/MS spectra from the 
 This script imports a mass spectral library (MSL) file (Fiehn-2013.MSL) and creates a table, *massSpectralLibrary*, with information about each compound in the library. *massSpectralLibrary* has 12 columns, which store various properties of the compounds like name, molecular weight, CAS number, retention index, retention time, number of peaks, m/z values, and abundance values. The spectra are represented as arrays of ion abundances between m/z 50 and 599. Column *abundance73* represents the abundance of each compound at m/z 73.
 
 ### learnMetabolicRewiring.m
+This script performs a series of operations to learn the metabolic rewiring from provided data.
 
-The `learnMetabolicRewiring.m` script analyzes metabolic rewiring in cancer cells using partial least squares regression (PLSR). It processes metabolomics data by loading and organizing spectra and fold changes, determining the optimal number of latent variables for the model, and comparing predictions with data. The script also explores the significance of the model by comparing it to shuffled data, visualizes the learned model by examining identified metabolites, and investigates latent components and their associated spectra. The analysis is performed using the `plsrLearner` class for PLSR.
+1. **Loading Spectra**: The script begins by loading spectra for all peaks from the file `tblSpectra.csv` located in the `extractedPeaks` directory.
+
+2. **Loading Fold Changes**: Next, it loads the fold changes for all peaks from `peakFoldChanges.csv` in the `folds` directory. The script then removes spectra that do not change and sorts the spectra and fold changes tables.
+
+3. **Optimization**: The script determines the optimum number of components by creating an instance of the `plsrStandAloneLearner05102023` class. It then performs a shuffling test.
+
+4. **Interpretation**: The script interprets the learned model by loading the FiehnLib, keeping only the derivatized compounds, and normalizing their spectra.
+
+5. **Answering Questions**: The script answers the questions posed in the paper discussion, specifically about the components C1 and C2.
+
+6. **Scoring**: Lastly, the script calculates the score for component 2 of all identified metabolites using data from `tblIdentity.csv` in the `identifiedFiehnLib` directory. It only keeps the best matches and sorts them in descending order by the w2Score.
+
 
 ## Classes
 ### PLSR Standalone Learner (plsrStandAloneLearner05102023)
