@@ -78,7 +78,7 @@ This MATLAB class uses Partial Least Squares Regression (PLSR) to establish asso
 
 ```MATLAB
 plsrObject = plsrStandAloneLearner05102023(x, y, kfold, maxn, nrandomized)
-
+```
 The class constructor plsrStandAloneLearner05102023 takes as input parameters:
 
 x: The input spectra for each metabolite.
