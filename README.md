@@ -55,44 +55,39 @@ This script imports a mass spectral library (MSL) file (Fiehn-2013.MSL) and crea
 The `learnMetabolicRewiring.m` script analyzes metabolic rewiring in cancer cells using partial least squares regression (PLSR). It processes metabolomics data by loading and organizing spectra and fold changes, determining the optimal number of latent variables for the model, and comparing predictions with data. The script also explores the significance of the model by comparing it to shuffled data, visualizes the learned model by examining identified metabolites, and investigates latent components and their associated spectra. The analysis is performed using the `plsrLearner` class for PLSR.
 
 ## Classes
-### PLSR Learner
+### PLSR Standalone Learner (plsrStandAloneLearner05102023)
 
-The `plsrLearner` class is a MATLAB class for learning associations between the spectrum of a metabolite and a response variable using Partial Least Square Regression (PLSR). The class is designed to handle the training, evaluation, and optimization of PLSR models.
+This MATLAB class uses Partial Least Squares Regression (PLSR) to establish associations between the spectrum of a metabolite and a response variable.
 
-#### Properties
+#### Features
 
-- `xData`: The spectra for each metabolite.
-- `yData`: The response variable.
+- **xFullData**: The spectra for each metabolite.
+- **yFullData**: The response variable.
+- **kfold**: The k-fold used to estimate loss and optimize components.
+- **maxn**: The maximum number of components tested.
+- **nrandomized**: The number of shuffling iterations used to test.
+- **cvIndices**: Cross-validation indices.
+- **nopt**: The optimal number of components.
+- **testSse**: Sum of squared errors of held-out examples (evaluation).
+- **BETA**: Coefficients of linear model trained with all data.
+- **Ypred**: Fit results.
+- **XL, YL**: Loadings of the X and Y.
+- **XS, YS**: Scores of input and output data mapped onto nopt-dimensional latent space.
 
-#### Methods
+#### Usage
 
-##### plsrLearner(x, y)
+```MATLAB
+plsrObject = plsrStandAloneLearner05102023(x, y, kfold, maxn, nrandomized)
 
-Constructor for the `plsrLearner` class. Initializes an instance with the given spectra `x` and response variable `y`.
+The class constructor plsrStandAloneLearner05102023 takes as input parameters:
 
-##### learn(x, y, n)
+x: The input spectra for each metabolite.
+y: The response variable.
+kfold: The k-fold used to estimate loss and optimize components.
+maxn: The maximum number of components tested.
+nrandomized: The number of shuffling iterations used to test.
+The class has methods to perform shuffling tests, learn the PLSR model, evaluate the model using k-fold cross-validation and optimize the model's components.
 
-Performs PLSR with `n` components using input `x` and response variable `y`. Returns the following:
+Please refer to the code documentation for more details on each method.
 
-- `BETA`: Regression coefficients.
-- `Ypred`: Predicted values of the response variable.
-- `loss`: Squared difference between predicted and true values.
-- `sse`: Sum of squared errors.
-
-##### leaveOneOutEvaluation(n)
-
-Evaluates a PLSR model with `n` components using leave-one-out cross-validation. Returns the following:
-
-- `Ypred`: Predicted values of the response variable.
-- `trainSse`: Mean sum of squared errors for training data.
-- `leaveOneOutSse`: Sum of squared errors for leave-one-out evaluation.
-
-##### optimizeComponentsAndLearn(maxn)
-
-Determines the optimal number of components (up to `maxn`) that minimizes the loss of leave-one-out evaluations. Returns the following:
-
-- `nopt`: Optimal number of components.
-- `Ypred`: Predicted values of the response variable for the optimal model.
-- `trainSse`: Mean sum of squared errors for training data for each tested number of components.
-- `leaveOneOutSse`: Sum of squared errors for leave-one-out evaluation for each tested number of components.
 
