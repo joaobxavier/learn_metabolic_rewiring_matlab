@@ -100,6 +100,4 @@ maxn: The maximum number of components tested.
 nrandomized: The number of shuffling iterations used to test.
 The class has methods to perform shuffling tests, learn the PLSR model, evaluate the model using k-fold cross-validation and optimize the model's components.
 
-Please refer to the code documentation for more details on each method.
-
 
