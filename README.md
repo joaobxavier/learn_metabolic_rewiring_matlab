@@ -37,7 +37,7 @@ To use this script, the following dependencies are required:
 - Chromatography-Master (for the conversion of Agilent data to CSV).
 
 ## Data
-The data used in this script is from Zenodo repository (['https://zenodo.org/record/8193580/files/'... 'metastasis_lineages_3replicates_3runs_10302020.zip?download=1']).
+The data used in this script is from Zenodo repository: https://zenodo.org/record/8193580/files/metastasis_lineages_3replicates_3runs_10302020.zip?download=1.
 
 ## Output
 The output of this script includes a variety of graphs and CSV files related to the MetaboLiteLearner workflow, including the percentage of variance explained by each component and the fold changes of each metabolite in B and L.
