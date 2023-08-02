@@ -1,0 +1,6 @@
+﻿Name LastDataFile
+  LastDataPath$ = "D:\MassHunter\GCMS\1\data\metastasis_lineages_3replicates_3runs_10302020\" 
+  LastDataFile$ = "B_plate3_run1_10302020.D" 
+  LastDataSize  = 23175309
+  remove LastDataFile
+  return

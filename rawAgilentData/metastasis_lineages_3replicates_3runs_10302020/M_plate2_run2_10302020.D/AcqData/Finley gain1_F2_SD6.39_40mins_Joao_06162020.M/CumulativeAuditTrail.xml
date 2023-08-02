@@ -1,0 +1,476 @@
+<?xml version="1.0" standalone="yes"?>
+<AuditTrailDataSet xmlns="http://tempuri.org/AuditTrailDataSet.xsd">
+  <AuditTrailEntry>
+    <ID>0</ID>
+    <ComputerName>Finley_Lab-PC</ComputerName>
+    <User>Finley_Lab-PC\Finley_Lab</User>
+    <TimeStamp>2017-11-17T14:06:15.681414-08:00</TimeStamp>
+    <Reason>none defined</Reason>
+    <Comment>Created New Method: Finley gain5.M</Comment>
+    <Approved>false</Approved>
+  </AuditTrailEntry>
+  <AuditTrailEntry>
+    <ID>1</ID>
+    <ComputerName>Finley_Lab-PC</ComputerName>
+    <User>system</User>
+    <TimeStamp>2017-11-17T16:08:20.9708419-08:00</TimeStamp>
+    <Reason>none defined</Reason>
+    <Comment>Updated MSD597x Method Parameters: Finley gain1.M</Comment>
+    <Approved>false</Approved>
+  </AuditTrailEntry>
+  <AuditTrailEntry>
+    <ID>2</ID>
+    <ComputerName>Finley_Lab-PC</ComputerName>
+    <User>system</User>
+    <TimeStamp>2017-11-17T16:10:01.9808425-08:00</TimeStamp>
+    <Reason>none defined</Reason>
+    <Comment>Updated MSD597x Method Parameters: Finley gain1.M</Comment>
+    <Approved>false</Approved>
+  </AuditTrailEntry>
+  <AuditTrailEntry>
+    <ID>3</ID>
+    <ComputerName>Finley_Lab-PC</ComputerName>
+    <User>system</User>
+    <TimeStamp>2017-11-17T16:12:34.1744435-08:00</TimeStamp>
+    <Reason>none defined</Reason>
+    <Comment>Updated MSD597x Method Parameters: Finley gain1.M</Comment>
+    <Approved>false</Approved>
+  </AuditTrailEntry>
+  <AuditTrailEntry>
+    <ID>4</ID>
+    <ComputerName>Finley_Lab-PC</ComputerName>
+    <User>system</User>
+    <TimeStamp>2018-03-27T07:37:32.1041445-07:00</TimeStamp>
+    <Reason>none defined</Reason>
+    <Comment>Updated MSD597x Method Parameters: Finley gain1.M</Comment>
+    <Approved>false</Approved>
+  </AuditTrailEntry>
+  <AuditTrailEntry>
+    <ID>5</ID>
+    <ComputerName>Finley_Lab-PC</ComputerName>
+    <User>system</User>
+    <TimeStamp>2019-08-10T11:07:23.1184736-07:00</TimeStamp>
+    <Reason>none defined</Reason>
+    <Comment>Updated Method Information for Finley gain1_filament2.M</Comment>
+    <Approved>false</Approved>
+  </AuditTrailEntry>
+  <AuditTrailEntry>
+    <ID>6</ID>
+    <ComputerName>Finley_Lab-PC</ComputerName>
+    <User>system</User>
+    <TimeStamp>2019-08-10T11:07:23.3794736-07:00</TimeStamp>
+    <Reason>none defined</Reason>
+    <Comment>Updated MSD597x Method Parameters: Finley gain1_filament2.M</Comment>
+    <Approved>false</Approved>
+  </AuditTrailEntry>
+  <AuditTrailEntry>
+    <ID>7</ID>
+    <ComputerName>Finley_Lab-PC</ComputerName>
+    <User>system</User>
+    <TimeStamp>2019-08-10T11:09:21.5564736-07:00</TimeStamp>
+    <Reason>none defined</Reason>
+    <Comment>Updated MSD597x Method Parameters: Finley gain1_filament2.M</Comment>
+    <Approved>false</Approved>
+  </AuditTrailEntry>
+  <AuditTrailEntry>
+    <ID>8</ID>
+    <ComputerName>Finley_Lab-PC</ComputerName>
+    <User>system</User>
+    <TimeStamp>2019-08-27T17:11:57.1783161-07:00</TimeStamp>
+    <Reason>none defined</Reason>
+    <Comment>Updated MSD597x Method Parameters: Finley gain1_filament2.M</Comment>
+    <Approved>false</Approved>
+  </AuditTrailEntry>
+  <AuditTrailEntry>
+    <ID>9</ID>
+    <ComputerName>Finley_Lab-PC</ComputerName>
+    <User>system</User>
+    <TimeStamp>2019-12-15T12:25:58.9130313-08:00</TimeStamp>
+    <Reason>none defined</Reason>
+    <Comment>Updated the GC method settings for D:\MassHunter\GCMS\1\methods\Finley gain1_filament2.M</Comment>
+    <Approved>false</Approved>
+  </AuditTrailEntry>
+  <AuditTrailEntry>
+    <ID>10</ID>
+    <ComputerName>Finley_Lab-PC</ComputerName>
+    <User>system</User>
+    <TimeStamp>2019-12-15T12:25:58.9286313-08:00</TimeStamp>
+    <Reason>none defined</Reason>
+    <Comment>Updated MSD597x Method Parameters: Finley gain1_filament2.M</Comment>
+    <Approved>false</Approved>
+  </AuditTrailEntry>
+  <AuditTrailEntry>
+    <ID>11</ID>
+    <ComputerName>Finley_Lab-PC</ComputerName>
+    <User>system</User>
+    <TimeStamp>2019-12-18T07:34:55.6105808-08:00</TimeStamp>
+    <Reason>none defined</Reason>
+    <Comment>Updated MSD597x Method Parameters: Finley gain1_F2_SD6.39.M</Comment>
+    <Approved>false</Approved>
+  </AuditTrailEntry>
+  <AuditTrailEntry>
+    <ID>12</ID>
+    <ComputerName>DESKTOP-E5QTRR8</ComputerName>
+    <User>system</User>
+    <TimeStamp>2020-03-04T11:17:14.1701565-08:00</TimeStamp>
+    <Reason>none defined</Reason>
+    <Comment>Updated the GC method settings for D:\MassHunter\GCMS\1\methods\Finley gain1_F2_SD6.39.M</Comment>
+    <Approved>false</Approved>
+  </AuditTrailEntry>
+  <AuditTrailEntry>
+    <ID>13</ID>
+    <ComputerName>DESKTOP-E5QTRR8</ComputerName>
+    <User>system</User>
+    <TimeStamp>2020-03-04T11:17:14.2198536-08:00</TimeStamp>
+    <Reason>none defined</Reason>
+    <Comment>Updated MSD597x Method Parameters: Finley gain1_F2_SD6.39.M</Comment>
+    <Approved>false</Approved>
+  </AuditTrailEntry>
+  <AuditTrailEntry>
+    <ID>14</ID>
+    <ComputerName>DESKTOP-E5QTRR8</ComputerName>
+    <User>system</User>
+    <TimeStamp>2020-03-11T17:03:40.3671441-07:00</TimeStamp>
+    <Reason>none defined</Reason>
+    <Comment />
+    <Approved>false</Approved>
+  </AuditTrailEntry>
+  <AuditTrailEntry>
+    <ID>15</ID>
+    <ComputerName>DESKTOP-E5QTRR8</ComputerName>
+    <User>system</User>
+    <TimeStamp>2020-06-16T14:58:13.4343134-07:00</TimeStamp>
+    <Reason>none defined</Reason>
+    <Comment>Updated Method Information for Finley gain1_F2_SD6.39_40mins_Joao_06162020.M</Comment>
+    <Approved>false</Approved>
+  </AuditTrailEntry>
+  <AuditTrailEntry>
+    <ID>16</ID>
+    <ComputerName>DESKTOP-E5QTRR8</ComputerName>
+    <User>system</User>
+    <TimeStamp>2020-06-16T14:58:13.7308437-07:00</TimeStamp>
+    <Reason>none defined</Reason>
+    <Comment>Updated the GC method settings for D:\MassHunter\GCMS\1\methods\Finley gain1_F2_SD6.39_40mins_Joao_06162020.M</Comment>
+    <Approved>false</Approved>
+  </AuditTrailEntry>
+  <AuditTrailEntry>
+    <ID>17</ID>
+    <ComputerName>DESKTOP-E5QTRR8</ComputerName>
+    <User>system</User>
+    <TimeStamp>2020-06-16T14:58:13.7308437-07:00</TimeStamp>
+    <Reason>none defined</Reason>
+    <Comment>Updated MSD597x Method Parameters: Finley gain1_F2_SD6.39_40mins_Joao_06162020.M</Comment>
+    <Approved>false</Approved>
+  </AuditTrailEntry>
+  <AuditTrailEntry>
+    <ID>18</ID>
+    <ComputerName>DESKTOP-E5QTRR8</ComputerName>
+    <User>system</User>
+    <TimeStamp>2020-06-17T12:25:52.7215379-07:00</TimeStamp>
+    <Reason>none defined</Reason>
+    <Comment>Updated the GC method settings for D:\MassHunter\GCMS\1\methods\Finley gain1_F2_SD6.39_40mins_Joao_06162020.M</Comment>
+    <Approved>false</Approved>
+  </AuditTrailEntry>
+  <AuditTrailEntry>
+    <ID>19</ID>
+    <ComputerName>DESKTOP-E5QTRR8</ComputerName>
+    <User>system</User>
+    <TimeStamp>2020-06-19T12:53:47.2793817-07:00</TimeStamp>
+    <Reason>none defined</Reason>
+    <Comment>Updated the GC method settings for D:\MassHunter\GCMS\1\methods\Finley gain1_F2_SD6.39_40mins_Joao_06162020.M</Comment>
+    <Approved>false</Approved>
+  </AuditTrailEntry>
+  <AuditTrailEntry>
+    <ID>20</ID>
+    <ComputerName>DESKTOP-E5QTRR8</ComputerName>
+    <User>system</User>
+    <TimeStamp>2020-10-30T12:17:55.2539345-07:00</TimeStamp>
+    <Reason>none defined</Reason>
+    <Comment>Updated the GC method settings for D:\MassHunter\GCMS\1\methods\Finley gain1_F2_SD6.39_40mins_Joao_06162020.M</Comment>
+    <Approved>false</Approved>
+  </AuditTrailEntry>
+  <AuditTrailEntry>
+    <ID>21</ID>
+    <ComputerName>DESKTOP-E5QTRR8</ComputerName>
+    <User>system</User>
+    <TimeStamp>2020-10-30T12:17:55.2852139-07:00</TimeStamp>
+    <Reason>none defined</Reason>
+    <Comment>Updated MSD597x Method Parameters: Finley gain1_F2_SD6.39_40mins_Joao_06162020.M</Comment>
+    <Approved>false</Approved>
+  </AuditTrailEntry>
+  <LoggableModification>
+    <AuditLogEntryID>0</AuditLogEntryID>
+    <LoggableModificationID>0</LoggableModificationID>
+    <ChangeDescription>Initial Version</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>1</AuditLogEntryID>
+    <LoggableModificationID>1</LoggableModificationID>
+    <ChangeDescription>Stabilization Duration (min) changed from 10 to 10</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>2</AuditLogEntryID>
+    <LoggableModificationID>2</LoggableModificationID>
+    <ChangeDescription>EMV Modulator changed from 5 to 1</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>2</AuditLogEntryID>
+    <LoggableModificationID>3</LoggableModificationID>
+    <ChangeDescription>Stabilization Duration (min) changed from 10 to 10</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>3</AuditLogEntryID>
+    <LoggableModificationID>4</LoggableModificationID>
+    <ChangeDescription>Stabilization Duration (min) changed from 10 to 10</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>4</AuditLogEntryID>
+    <LoggableModificationID>5</LoggableModificationID>
+    <ChangeDescription>Stabilization Duration (min) changed from 10 to 10</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>5</AuditLogEntryID>
+    <LoggableModificationID>6</LoggableModificationID>
+    <ChangeDescription>Copy Method With Data changed from False to True</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>5</AuditLogEntryID>
+    <LoggableModificationID>7</LoggableModificationID>
+    <ChangeDescription>Method Comment changed from This is the gain1 method to This is the gain1 method with Filament2 PKT</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>6</AuditLogEntryID>
+    <LoggableModificationID>8</LoggableModificationID>
+    <ChangeDescription>Tune File Name changed from etune.u to etune_fil2.u</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>6</AuditLogEntryID>
+    <LoggableModificationID>9</LoggableModificationID>
+    <ChangeDescription>Stabilization Duration (min) changed from 10 to 10</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>7</AuditLogEntryID>
+    <LoggableModificationID>10</LoggableModificationID>
+    <ChangeDescription>Stabilization Duration (min) changed from 10 to 10</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>8</AuditLogEntryID>
+    <LoggableModificationID>11</LoggableModificationID>
+    <ChangeDescription>Stabilization Duration (min) changed from 10 to 10</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>9</AuditLogEntryID>
+    <LoggableModificationID>12</LoggableModificationID>
+    <ChangeDescription>Column #1 Calibrated changed: Length Only 28.8 m -&gt; Length Only 33 m.</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>9</AuditLogEntryID>
+    <LoggableModificationID>13</LoggableModificationID>
+    <ChangeDescription>Column #1 Pressure changed: 7.7685 psi -&gt; 9.3508 psi.</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>9</AuditLogEntryID>
+    <LoggableModificationID>14</LoggableModificationID>
+    <ChangeDescription>Column #1 Holdup Time changed: 1.3377 min -&gt; 1.4319 min.</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>9</AuditLogEntryID>
+    <LoggableModificationID>15</LoggableModificationID>
+    <ChangeDescription>Front Inlet Pressure changed: On 7.7685 psi -&gt; On 9.3508 psi.</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>10</AuditLogEntryID>
+    <LoggableModificationID>16</LoggableModificationID>
+    <ChangeDescription>Stabilization Duration (min) changed from 10 to 10</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>11</AuditLogEntryID>
+    <LoggableModificationID>17</LoggableModificationID>
+    <ChangeDescription>Solvent Delay In Minutes changed from 5.95 to 6.39</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>11</AuditLogEntryID>
+    <LoggableModificationID>18</LoggableModificationID>
+    <ChangeDescription>Stabilization Duration (min) changed from 10 to 10</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>11</AuditLogEntryID>
+    <LoggableModificationID>19</LoggableModificationID>
+    <ChangeDescription>Deleted: Scan Time Segment: (time 5.95, start mass 50, end mass 500, threshold 150, samples 4)</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>11</AuditLogEntryID>
+    <LoggableModificationID>20</LoggableModificationID>
+    <ChangeDescription>Added: Scan Time Segment: (time 6.39, start mass 50, end mass 500, threshold 150, samples 4)</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>12</AuditLogEntryID>
+    <LoggableModificationID>21</LoggableModificationID>
+    <ChangeDescription>Column #1 Name changed:  -&gt; Agilent.</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>12</AuditLogEntryID>
+    <LoggableModificationID>22</LoggableModificationID>
+    <ChangeDescription>Column #1 Calibrated changed: Length Only 30 m -&gt; Uncalibrated.</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>13</AuditLogEntryID>
+    <LoggableModificationID>23</LoggableModificationID>
+    <ChangeDescription>Tune File Name changed from etune_fil2.u to etune.u</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>14</AuditLogEntryID>
+    <LoggableModificationID>24</LoggableModificationID>
+    <ChangeDescription>Aux-2 Temperature Label changed from &lt;empty string&gt; to Aux-2 Temperature</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>14</AuditLogEntryID>
+    <LoggableModificationID>25</LoggableModificationID>
+    <ChangeDescription>Column-1 Flow Calc. Label changed from &lt;empty string&gt; to Column-1 Flow Calc.</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>14</AuditLogEntryID>
+    <LoggableModificationID>26</LoggableModificationID>
+    <ChangeDescription>Inlet-F Temperature Label changed from &lt;empty string&gt; to Inlet-F Temperature</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>14</AuditLogEntryID>
+    <LoggableModificationID>27</LoggableModificationID>
+    <ChangeDescription>Oven Temperature Label changed from &lt;empty string&gt; to Oven Temperature</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>14</AuditLogEntryID>
+    <LoggableModificationID>28</LoggableModificationID>
+    <ChangeDescription>Filament Label changed from &lt;empty string&gt; to Filament</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>14</AuditLogEntryID>
+    <LoggableModificationID>29</LoggableModificationID>
+    <ChangeDescription>MS Quad Label changed from &lt;empty string&gt; to MS Quad</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>14</AuditLogEntryID>
+    <LoggableModificationID>30</LoggableModificationID>
+    <ChangeDescription>MS Source Label changed from &lt;empty string&gt; to MS Source</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>15</AuditLogEntryID>
+    <LoggableModificationID>31</LoggableModificationID>
+    <ChangeDescription>Method Comment changed from This is the gain1 method with Filament2 PKT to This is the gain1 method with Filament2 PKTslow ramp up</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>16</AuditLogEntryID>
+    <LoggableModificationID>32</LoggableModificationID>
+    <ChangeDescription>Oven Program changed: 70 °C for 1 min -&gt; 60 °C for 1 min.</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>16</AuditLogEntryID>
+    <LoggableModificationID>33</LoggableModificationID>
+    <ChangeDescription>Oven Program[1] changed: then 30 °C/min to 280 °C for 1 min -&gt; then 10 °C/min to 325 °C for 10 min.</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>16</AuditLogEntryID>
+    <LoggableModificationID>34</LoggableModificationID>
+    <ChangeDescription>Column #1 (Initial) changed: 70 °C -&gt; 60 °C.</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>16</AuditLogEntryID>
+    <LoggableModificationID>35</LoggableModificationID>
+    <ChangeDescription>Column #1 Pressure changed: 8.8085 psi -&gt; 8.2317 psi.</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>16</AuditLogEntryID>
+    <LoggableModificationID>36</LoggableModificationID>
+    <ChangeDescription>Column #1 Average Velocity changed: 36.796 cm/sec -&gt; 36.623 cm/sec.</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>16</AuditLogEntryID>
+    <LoggableModificationID>37</LoggableModificationID>
+    <ChangeDescription>Column #1 Holdup Time changed: 1.3588 min -&gt; 1.3653 min.</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>16</AuditLogEntryID>
+    <LoggableModificationID>38</LoggableModificationID>
+    <ChangeDescription>MSD Transfer Line changed: On 280 °C -&gt; On 325 °C.</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>16</AuditLogEntryID>
+    <LoggableModificationID>39</LoggableModificationID>
+    <ChangeDescription>Front MM Inlet He Pressure changed: On 8.8085 psi -&gt; On 8.2317 psi.</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>17</AuditLogEntryID>
+    <LoggableModificationID>40</LoggableModificationID>
+    <ChangeDescription>Solvent Delay In Minutes changed from 6.39 to 5.9</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>17</AuditLogEntryID>
+    <LoggableModificationID>41</LoggableModificationID>
+    <ChangeDescription>Deleted: Scan Time Segment: (time 6.39, start mass 50, end mass 500, threshold 150, samples 4)</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>17</AuditLogEntryID>
+    <LoggableModificationID>42</LoggableModificationID>
+    <ChangeDescription>Added: Scan Time Segment: (time 5.9, start mass 50, end mass 600, threshold 150, samples 4)</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>18</AuditLogEntryID>
+    <LoggableModificationID>43</LoggableModificationID>
+    <ChangeDescription>Oven Program changed: 70 °C for 1 min -&gt; 60 °C for 1 min.</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>18</AuditLogEntryID>
+    <LoggableModificationID>44</LoggableModificationID>
+    <ChangeDescription>Oven Program[1] changed: then 30 °C/min to 280 °C for 1 min -&gt; then 10 °C/min to 325 °C for 10 min.</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>18</AuditLogEntryID>
+    <LoggableModificationID>45</LoggableModificationID>
+    <ChangeDescription>Column #1 (Initial) changed: 70 °C -&gt; 60 °C.</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>18</AuditLogEntryID>
+    <LoggableModificationID>46</LoggableModificationID>
+    <ChangeDescription>Column #1 Pressure changed: 8.8085 psi -&gt; 8.2317 psi.</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>18</AuditLogEntryID>
+    <LoggableModificationID>47</LoggableModificationID>
+    <ChangeDescription>Column #1 Average Velocity changed: 36.796 cm/sec -&gt; 36.623 cm/sec.</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>18</AuditLogEntryID>
+    <LoggableModificationID>48</LoggableModificationID>
+    <ChangeDescription>Column #1 Holdup Time changed: 1.3588 min -&gt; 1.3653 min.</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>18</AuditLogEntryID>
+    <LoggableModificationID>49</LoggableModificationID>
+    <ChangeDescription>MSD Transfer Line changed: On 280 °C -&gt; On 325 °C.</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>18</AuditLogEntryID>
+    <LoggableModificationID>50</LoggableModificationID>
+    <ChangeDescription>Front MM Inlet He Pressure changed: On 8.8085 psi -&gt; On 8.2317 psi.</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>19</AuditLogEntryID>
+    <LoggableModificationID>51</LoggableModificationID>
+    <ChangeDescription>MSD Transfer Line changed: On 325 °C -&gt; On 290 °C.</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>20</AuditLogEntryID>
+    <LoggableModificationID>52</LoggableModificationID>
+    <ChangeDescription>Column #1 Temperature Range changed: -60 °C—325 °C (350 °C) -&gt; -60 °C—325 °C (325 °C).</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>20</AuditLogEntryID>
+    <LoggableModificationID>53</LoggableModificationID>
+    <ChangeDescription>Column #1 Calibrated changed: Length Only 29.74 m -&gt; Length Only 30 m.</ChangeDescription>
+  </LoggableModification>
+  <LoggableModification>
+    <AuditLogEntryID>21</AuditLogEntryID>
+    <LoggableModificationID>54</LoggableModificationID>
+    <ChangeDescription>Tune File Name changed from etune.u to atune.u</ChangeDescription>
+  </LoggableModification>
+</AuditTrailDataSet>

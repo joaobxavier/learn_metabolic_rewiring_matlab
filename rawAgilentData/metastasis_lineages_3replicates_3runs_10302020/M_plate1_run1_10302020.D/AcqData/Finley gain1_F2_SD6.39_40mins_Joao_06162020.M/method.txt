@@ -1,0 +1,12 @@
+﻿Additional Information for Finley gain1.M
+File created Fri Nov 17 16:57:30 2017
+
+Method : D:\MassHunter\GCMS\1\methods\default.m
+Renamed: D:\MassHunter\GCMS\1\methods\Finley gain1.M
+Fri Nov 17 16:57:30 2017
+-----------------------------------------
+
+Method : D:\MassHunter\GCMS\1\methods\Finley gain1.M
+Renamed: D:\MassHunter\GCMS\1\methods\Finley gain5.M
+Fri Nov 17 17:06:14 2017
+-----------------------------------------

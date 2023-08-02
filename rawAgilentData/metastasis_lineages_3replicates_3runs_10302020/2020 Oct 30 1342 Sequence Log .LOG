@@ -1,0 +1,58 @@
+﻿    Starting sequence Fri Oct 30 13:42:01 2020
+     
+  Instrument Name: Ostrich
+    Sequence File: D:\MassHunter\GCMS\1\sequence\lineages_derivatized_40mins_wendy_
+...                run3X_10302020.sequence.xml
+          Comment: metastasis lineages after gas refill
+         Operator: Wendy Lin
+        Data Path: D:\MassHunter\GCMS\1\data\metastasis_lineages_3replicates_3runs_
+...                10302020\
+
+    Line  Type          Vials    DataFile                       Sample Name
+    -----------------------------------------------------------------------
+    Acquisition Method Path: D:\MassHunter\GCMS\1\methods\
+    Acquisition Method File: Finley gain1_F2_SD6.39_40mins_Joao_06162020.M
+      1) Blank            1      ethyl_acetate_r...2020  ethyl_acetate_run1_...2020
+      2) Sample           2      P_plate1_run1_1...2020  P_plate1_run1_10302020   
+      3) Sample           3      B_plate1_run1_1...2020  B_plate1_run1_10302020   
+      4) Sample           4      L_plate1_run1_1...2020  L_plate1_run1_10302020   
+      5) Sample           5      M_plate1_run1_1...2020  M_plate1_run1_10302020   
+      6) Sample           6      P_plate2_run1_1...2020  P_plate2_run1_10302020   
+      7) Sample           7      B_plate2_run1_1...2020  B_plate2_run1_10302020   
+      8) Sample           8      L_plate2_run1_1...2020  L_plate2_run1_10302020   
+      9) Sample           9      M_plate2_run1_1...2020  M_plate2_run1_10302020   
+     10) Sample          10      P_plate3_run1_1...2020  P_plate3_run1_10302020   
+     11) Sample          11      B_plate3_run1_1...2020  B_plate3_run1_10302020   
+     12) Sample          12      L_plate3_run1_1...2020  L_plate3_run1_10302020   
+     13) Sample          13      M_plate3_run1_1...2020  M_plate3_run1_10302020   
+     14) Blank            1      ethyl_acetate_r...2020  ethyl_acetate_run2_...2020
+     15) Sample           2      P_plate1_run2_1...2020  P_plate1_run2_10302020   
+     16) Sample           3      B_plate1_run2_1...2020  B_plate1_run2_10302020   
+     17) Sample           4      L_plate1_run2_1...2020  L_plate1_run2_10302020   
+     18) Sample           5      M_plate1_run2_1...2020  M_plate1_run2_10302020   
+     19) Sample           6      P_plate2_run2_1...2020  P_plate2_run2_10302020   
+     20) Sample           7      B_plate2_run2_1...2020  B_plate2_run2_10302020   
+     21) Sample           8      L_plate2_run2_1...2020  L_plate2_run2_10302020   
+     22) Sample           9      M_plate2_run2_1...2020  M_plate2_run2_10302020   
+     23) Sample          10      P_plate3_run2_1...2020  P_plate3_run2_10302020   
+     24) Sample          11      B_plate3_run2_1...2020  B_plate3_run2_10302020   
+     25) Sample          12      L_plate3_run2_1...2020  L_plate3_run2_10302020   
+     26) Sample          13      M_plate3_run2_1...2020  M_plate3_run2_10302020   
+     27) Blank            1      ethyl_acetate_r...2020  ethyl_acetate_run3_...2020
+     28) Sample           2      P_plate1_run3_1...2020  P_plate1_run3_10302020   
+     29) Sample           3      B_plate1_run3_1...2020  B_plate1_run3_10302020   
+     30) Sample           4      L_plate1_run3_1...2020  L_plate1_run3_10302020   
+     31) Sample           5      M_plate1_run3_1...2020  M_plate1_run3_10302020   
+     32) Sample           6      P_plate2_run3_1...2020  P_plate2_run3_10302020   
+     33) Sample           7      B_plate2_run3_1...2020  B_plate2_run3_10302020   
+     34) Sample           8      L_plate2_run3_1...2020  L_plate2_run3_10302020   
+     35) Sample           9      M_plate2_run3_1...2020  M_plate2_run3_10302020   
+     36) Sample          10      P_plate3_run3_1...2020  P_plate3_run3_10302020   
+     37) Sample          11      B_plate3_run3_1...2020  B_plate3_run3_10302020   
+     38) Sample          12      L_plate3_run3_1...2020  L_plate3_run3_10302020   
+     39) Sample          13      M_plate3_run3_1...2020  M_plate3_run3_10302020   
+     40) Blank            1      ethyl_acetate_r...2020  ethyl_acetate_run4_...2020
+     
+    Sequence completed Sat Oct 31 17:51:01 2020
+     
+      D:\MassHunter\GCMS\1\data\metastasis_lineages_3replicates_3runs_10302020\2020 O
