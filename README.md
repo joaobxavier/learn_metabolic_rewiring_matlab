@@ -1,5 +1,47 @@
 # MetaboLiteLearner: a lightweight machine learning algorithm to learn metabolic rewiring from GC/MS data
 
+This repository contains a MATLAB script `scMeboLiteLearnerWorkFlow.m` which implements the entire MetaboLiteLearner workflow. Below is the detailed description of the script.
+
+## How to use the script
+This script can be executed in MATLAB environment. The script contains the steps to preprocess the data, compute the fold change for each metabolite, and plot the percentage of variance explained by each component. The default settings are set to skip workflow steps, but you can change this by setting variables to true. For example, if you set `DOWNLOAD = true;`, the script will download the raw data from Zenodo.
+
+The script is divided into several steps:
+
+1. **Download the raw data from Zenodo:** This step downloads the raw Agilent data from the Zenodo repository and saves it in a directory named 'rawAgilentData'. 
+   
+2. **Convert Agilent files to CSV:** This step imports the Agilent data, bins it, and exports it as CSV files. It requires the chromatography-master in the path.
+
+3. **Extract Spectra and Integrate:** This step extracts the spectra and integrates it, generating two tables: `tblPeaksIntegrated` and `tblSpectra`.
+
+4. **Load peak data:** This step loads the previously generated tables and extracts the sample type from the sample name.
+
+5. **Remove peaks that are not different from media:** This step performs ANOVA tests to remove peaks that are not significantly different from media.
+
+6. **Rescale samples:** This step rescales the samples using the intracellular metabolome. 
+
+7. **Fit model and calculate corrected peak areas:** This step uses linear mixed effects models to calculate corrected peak areas.
+
+8. **Compute the fold change for each metabolite in B and L:** This step computes the fold change for each metabolite in B and L and saves the folds table.
+
+9. **Remove spectra that are not in foldchange table (compounds unchanged):** This step removes spectra that are not present in the fold change table.
+
+10. **Determine number of latent components (metaboLiteLearner.m):** This step determines the number of latent components using the MetaboLiteLearner.
+
+11. **Plot the percentage of variance explained by each component for X and Y:** This step generates a bar plot to visualize the percentage of variance explained by each component for X and Y.
+
+12. **Plot the loadings of the latent component:** This step plots the loadings of the latent component. 
+
+## Required Dependencies
+To use this script, the following dependencies are required:
+- MATLAB: A high-level language and interactive environment developed by MathWorks.
+- Chromatography-Master (for the conversion of Agilent data to CSV).
+
+## Data
+The data used in this script is from Zenodo repository (['https://zenodo.org/record/8193580/files/'... 'metastasis_lineages_3replicates_3runs_10302020.zip?download=1']).
+
+## Output
+The output of this script includes a variety of graphs and CSV files related to the MetaboLiteLearner workflow, including the percentage of variance explained by each component and the fold changes of each metabolite in B and L.
+
 ## Functions
 
 ### convertAgilentToCvs(dataDir, outputDir)
@@ -14,90 +56,40 @@ Analyzes GCMS data in the provided directory containing CSV files. It identifies
 - `csvDataDir`: The directory containing the GCMS data in CSV format. Each CSV file should represent a sample.
 - `outputSpectraDir`: The directory where the output files, `tblPeaksIntegrated.csv` and `tblSpectra.csv`, will be saved.
 
-## Scripts
-
-### scaleGcmsPeaks
-
-This is a script, not a function. Therefore, it doesn't have input arguments. Loads the peak areas table, scales each sample using a mixed effects model, does a PCA to compare the data before and after scaling, then uses another mixed effects model to calculate the log-2 fold change of each peak detected. Saves the result as a table in a new directory 'folds'.
-
-### unsupervisedAnalysis.m
-
-This script performs unsupervised analysis on the metabolite data, exploring the structure within the explanatory variable X and examining correlations within the response variable Y. It generates two figures:
-
-1. Correlation between brain-homing and lung-homing fold changes.
-2. PCoA plots for GC/MS peaks, log2(FC) in brain-homing, and log2(FC) in lung-homing.
-
-
-
-### identifyCompounds 
-Identify Compounds with GC/MS Data and FiehnLib. Matches GC/MS spectra from the `extractedPeaks` folder against the FiehnLib mass spectral library. It assesses best matches based on cosine similarity and the retention time window.
-
-#### Script Workflow
-
-1. Load the spectra from the `tblSpectra.csv` file in the `extractedPeaks` folder.
-2. Import the FiehnLib mass spectral library.
-3. Compute the cosine similarity between the input spectra and the FiehnLib spectra.
-4. Identify the best matches based on cosine similarity.
-5. Create a new table with the best matches and their properties (name, CAS number, retention time).
-6. Calibrate the retention time using a robust linear fit model, considering only matches with excellent similarity (>= 95%).
-7. Add a flag to the table indicating if a match has >= 95% similarity and is within the 95% confidence retention time window.
-8. Generate two plots:
-   - A scatter plot showing the calibrated retention times of the input spectra and the best FiehnLib matches.
-   - A scatter plot ranking the cosine similarity of the identified peaks, highlighting good matches.
-9. Save the identified compound table in the `identifiedFiehnLib` folder as `tblIdentity.csv`.
-
-### importMsl
-
-This script imports a mass spectral library (MSL) file (Fiehn-2013.MSL) and creates a table, *massSpectralLibrary*, with information about each compound in the library. *massSpectralLibrary* has 12 columns, which store various properties of the compounds like name, molecular weight, CAS number, retention index, retention time, number of peaks, m/z values, and abundance values. The spectra are represented as arrays of ion abundances between m/z 50 and 599. Column *abundance73* represents the abundance of each compound at m/z 73.
-
-### learnMetabolicRewiring.m
-This script performs a series of operations to learn the metabolic rewiring from provided data.
-
-1. **Loading Spectra**: The script begins by loading spectra for all peaks from the file `tblSpectra.csv` located in the `extractedPeaks` directory.
-
-2. **Loading Fold Changes**: Next, it loads the fold changes for all peaks from `peakFoldChanges.csv` in the `folds` directory. The script then removes spectra that do not change and sorts the spectra and fold changes tables.
-
-3. **Optimization**: The script determines the optimum number of components by creating an instance of the `plsrStandAloneLearner05102023` class. It then performs a shuffling test.
-
-4. **Interpretation**: The script interprets the learned model by loading the FiehnLib, keeping only the derivatized compounds, and normalizing their spectra.
-
-5. **Answering Questions**: The script answers the questions posed in the paper discussion, specifically about the components C1 and C2.
-
-6. **Scoring**: Lastly, the script calculates the score for component 2 of all identified metabolites using data from `tblIdentity.csv` in the `identifiedFiehnLib` directory. It only keeps the best matches and sorts them in descending order by the w2Score.
-
-
 ## Classes
-### PLSR Standalone Learner (plsrStandAloneLearner05102023)
+### MetaboLiteLearner
+The `MetaboLiteLearner` class employs partial least square regression (PLSR) to study associations between the spectrum of a metabolite and a corresponding response variable.
 
-This MATLAB class uses Partial Least Squares Regression (PLSR) to establish associations between the spectrum of a metabolite and a response variable.
+##### Properties
 
-#### Features
+###### Input Properties
+- **xFullData**: Spectra for each metabolite.
+- **yFullData**: Response variable.
+- **kfold**: k-fold used for estimating loss and optimizing components.
+- **maxn**: Maximum number of components tested.
+- **nrandomized**: Number of shuffling iterations for testing.
 
-- **xFullData**: The spectra for each metabolite.
-- **yFullData**: The response variable.
-- **kfold**: The k-fold used to estimate loss and optimize components.
-- **maxn**: The maximum number of components tested.
-- **nrandomized**: The number of shuffling iterations used to test.
+###### State Variables
 - **cvIndices**: Cross-validation indices.
-- **nopt**: The optimal number of components.
-- **testSse**: Sum of squared errors of held-out examples (evaluation).
-- **BETA**: Coefficients of linear model trained with all data.
+- **nopt**: Optimum number of components.
+- **testSse**: Sum of squared errors of held-out examples for evaluation.
+- **BETA**: Coefficients of the linear model trained with all data.
+- **PCTVAR**: Percent variance explained.
 - **Ypred**: Fit results.
-- **XL, YL**: Loadings of the X and Y.
-- **XS, YS**: Scores of input and output data mapped onto nopt-dimensional latent space.
+- **XL**: Loadings of the X.
+- **YL**: Loadings of the Y.
+- **XS**: Scores of input data mapped onto `nopt`-dimensional latent space.
+- **YS**: Scores of output data mapped onto `nopt`-dimensional latent space.
+- **stats**: Output of the `plsregress`.
 
-#### Usage
+##### Methods
 
-```MATLAB
-plsrObject = plsrStandAloneLearner05102023(x, y, kfold, maxn, nrandomized)
-```
-The class constructor plsrStandAloneLearner05102023 takes as input parameters:
+###### Constructor
+- `MetaboLiteLearner(x, y, kfold, maxn, nrandomized)`: Constructs an instance of the class.
 
-x: The input spectra for each metabolite.
-y: The response variable.
-kfold: The k-fold used to estimate loss and optimize components.
-maxn: The maximum number of components tested.
-nrandomized: The number of shuffling iterations used to test.
-The class has methods to perform shuffling tests, learn the PLSR model, evaluate the model using k-fold cross-validation and optimize the model's components.
-
-
+###### Public Methods
+- `mapToLatentSpace(x)`: Maps a set of spectra to the latent space.
+- `shufflingTest()`: Performs a shuffling test.
+- `learn(x, y, n)`: Executes PLSR with `n` components.
+- `crossValidationEvaluation(x, y, n)`: Evaluates a PLSR model with 'n' components using k-fold cross-validation.
+- `optimizeComponentsAndLearn()`: Determines the number of components that minimizes the evaluation loss.
