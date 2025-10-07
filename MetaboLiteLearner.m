@@ -180,13 +180,18 @@ classdef MetaboLiteLearner
             close(h)
             % the ooptimal number of components is the one with minimum
             % average loss + 1 standard error
-            [~, nMin] = min(mean(testSse));
+            meanTestSse = mean(testSse);
+            [~, nMin] = min(meanTestSse);
             % calculate standard error
             stderror = std(testSse) / sqrt( size(testSse, 1) );
-            % 
-            minError = mean(testSse);
-            minError = minError(nMin) +  stderror(nMin);
-            nopt = max(find(mean(testSse) > minError & 1:length(stderror) < nMin));
+            %
+            minError = meanTestSse(nMin) +  stderror(nMin);
+            candidateIdx = find(meanTestSse > minError & (1:numel(stderror)) < nMin);
+            if isempty(candidateIdx)
+                nopt = nMin;
+            else
+                nopt = max(candidateIdx);
+            end
   
             % darw figure with evaluation and training
             figure

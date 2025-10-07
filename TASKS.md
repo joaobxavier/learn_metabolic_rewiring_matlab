@@ -1,5 +1,10 @@
 # Proposed Maintenance Tasks
 
+## Fix a Typographical Error
+* **Issue**: In `MetaboLiteLearner.m`, several property comments contain typographical errors (e.g., "meatbolite" instead of "metabolite", "reponse" instead of "response"). These reduce readability when browsing the class documentation.
+* **Proposed Task**: Correct the spelling errors in the property documentation block of `MetaboLiteLearner`.
+* **Files**: `MetaboLiteLearner.m`
+
 ## Resolve a Bug
 * **Issue**: `optimizeComponentsAndLearn` computes the optimal component count with `max(find(...))`. When no component index satisfies the condition (which happens if the minimum-error model also satisfies the one-standard-error rule), the `find` returns empty, propagating an empty `nopt` that later causes indexing failures.
 * **Proposed Task**: Update the logic so that `nopt` defaults to `nMin` when the `find` result is empty, ensuring the method always returns a valid component count.
