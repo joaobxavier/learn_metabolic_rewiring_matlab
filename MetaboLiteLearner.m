@@ -4,7 +4,7 @@ classdef MetaboLiteLearner
 
     properties
         % input properties
-        xFullData; % the spectra for each meatbolite
+        xFullData; % the spectra for each metabolite
         yFullData; % the reponse variable
         kfold; % the kfold used to estimate loss and optimize components
         maxn; % the maximum number of components tested
