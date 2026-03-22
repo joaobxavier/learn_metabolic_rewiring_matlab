@@ -156,12 +156,32 @@ def _plot_variance_explained(learner: MetaboLiteLearner, output_dir: Path) -> Pa
 
 
 def _safe_extract_kegg_table(mat_path: Path) -> pd.DataFrame | None:
+    csv_fallback = mat_path.with_suffix(".csv")
+
+    def _load_csv_fallback() -> pd.DataFrame | None:
+        if not csv_fallback.exists():
+            return None
+        frame = pd.read_csv(csv_fallback)
+        mz_columns = [column for column in frame.columns if column.startswith("mz")]
+        class_column = "metClassLevel1" if "metClassLevel1" in frame.columns else "classCol" if "classCol" in frame.columns else None
+        if class_column is None or not mz_columns:
+            return None
+        records = []
+        for _, row in frame.iterrows():
+            records.append(
+                {
+                    "metClassLevel1": str(row[class_column]),
+                    "abundance": row[mz_columns].to_numpy(dtype=float),
+                }
+            )
+        return pd.DataFrame.from_records(records)
+
     if not mat_path.exists():
-        return None
+        return _load_csv_fallback()
     payload = loadmat(mat_path, squeeze_me=True, struct_as_record=False)
     table = payload.get("tblKegg3")
     if table is None:
-        return None
+        return _load_csv_fallback()
     try:
         records = []
         iterable = table if np.ndim(table) else [table]
@@ -173,7 +193,7 @@ def _safe_extract_kegg_table(mat_path: Path) -> pd.DataFrame | None:
             records.append({"metClassLevel1": str(met_class), "abundance": np.asarray(abundance, dtype=float).reshape(-1)})
         return pd.DataFrame.from_records(records)
     except Exception:
-        return None
+        return _load_csv_fallback()
 
 
 def _prepare_kegg_projection(learner: MetaboLiteLearner, kegg_mat: Path) -> pd.DataFrame | None:
