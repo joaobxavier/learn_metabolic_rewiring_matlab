@@ -74,7 +74,10 @@ class MetaboLiteLearner:
         loss = (y_pred - y) ** 2
         sse = float(loss.sum())
 
-        beta = np.vstack([model.intercept_.reshape(1, -1), model.coef_])
+        coefficients = np.asarray(model.coef_, dtype=float)
+        if coefficients.shape == (y.shape[1], x.shape[1]):
+            coefficients = coefficients.T
+        beta = np.vstack([np.asarray(model.intercept_, dtype=float).reshape(1, -1), coefficients])
         pctvar = self._calculate_pctvar(x, y, model)
         return (
             model,
