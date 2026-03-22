@@ -24,6 +24,7 @@ def build_parser() -> argparse.ArgumentParser:
     workflow_parser.add_argument("--kfold-learn", type=int, default=0)
     workflow_parser.add_argument("--max-components", type=int, default=30)
     workflow_parser.add_argument("--nrandomized", type=int, default=1000)
+    workflow_parser.add_argument("--shuffle-test", action="store_true")
     return parser
 
 
@@ -53,6 +54,7 @@ def main() -> None:
             kfold_learn=args.kfold_learn,
             max_components=args.max_components,
             nrandomized=args.nrandomized,
+            shuffle_test=args.shuffle_test,
         )
         print(
             "Completed workflow with "
