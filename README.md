@@ -71,7 +71,7 @@ This produces:
 python3 -m metabolite_learner convert-agilent rawAgilentData/... gcmsCSVs
 ```
 
-Unlike the MATLAB version, the Python implementation does not hard-code a dependency on `chromatography-master`. Instead, `convert_agilent_to_csv` accepts a pluggable loader because Agilent `.D` directories are proprietary vendor containers. Out of the box, the function looks for a pre-exported matrix CSV inside each `.D` directory.
+Unlike the MATLAB version, the Python implementation does not hard-code a dependency on `chromatography-master`. Instead, `convert_agilent_to_csv` accepts a pluggable loader because Agilent `.D` directories are proprietary vendor containers. Out of the box, the function now reads the raw `*.ms` file inside each `.D` directory, decodes the TIC/XIC data, bins the spectra onto the workflow's m/z grid, and interpolates onto the same retention-time grid as the MATLAB workflow. If raw MS data is unavailable, it falls back to pre-exported matrix or TIC files inside the sample directory.
 
 ## Notes on parity with MATLAB
 
